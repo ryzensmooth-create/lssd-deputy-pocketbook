@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSSD Deputy Pocketbook</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f5f3;
+      color: #202820;
+    }
+    header {
+      background: #23372b;
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; color: #d6e2d8; }
+    main {
+      max-width: 760px;
+      margin: 28px auto;
+      padding: 0 16px;
+    }
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccd4cd;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .item {
+      background: white;
+      border: 1px solid #e0e5e0;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .item h2 { font-size: 19px; margin-top: 0; }
+    .item p { color: #626b63; font-size: 14px; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #687168;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LSSD</h1>
+    <p>DEPUTY POCKETBOOK · IME ROLEPLAY</p>
+  </header>
+
+  <main>
+    <h2>Deputy Handbook</h2>
+    <p>Panduan praktis anggota Los Santos Sheriff Department.</p>
+
+    <input id="search" type="text"
+      placeholder="Cari handbook..."
+      oninput="cariMenu()">
+
+    <div class="menu" id="menu">
+      <section class="item">
+        <h2>Ten Codes</h2>
+        <p>Kode komunikasi radio dan kepolisian.</p>
+      </section>
+      <section class="item">
+        <h2>Penal Code</h2>
+        <p>Daftar pelanggaran dan ketentuan hukum.</p>
+      </section>
+      <section class="item">
+        <h2>Standard Operating Procedures</h2>
+        <p>Pedoman dan prosedur operasional Deputy.</p>
+      </section>
+      <section class="item">
+        <h2>Miranda Rights</h2>
+        <p>Panduan pembacaan hak tersangka.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    LSSD · IME Roleplay · Deputy Pocketbook
+  </footer>
+
+  <script>
+    function cariMenu() {
+      const kata = document.getElementById("search")
+        .value.toLowerCase();
+      document.querySelectorAll(".item").forEach(item => {
+        item.style.display = item.innerText
+          .toLowerCase().includes(kata) ? "" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
